@@ -1,10 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app> <!--Angular Directive-->
   <head>
     <title>TheNetNinja Angular Playlist</title>
     <link href="content/css/styles.css" rel="stylesheet" type="text/css" />
+    <script src="app\lib\angular.min.js"></script>
   </head>
-  <body>
-
+  <body ng-init="num=[1,2,3,4];meat=['pork','ham','beef'];color='orange'">
+      <h1>Hello Everyone</h1>
+      <input type="text" ng-model="favMeat" placeholder="Enter Your Fav Meat">
+      <p>Your fav meat is : {{favMeat}}</p>
+      <p>This is 2-Way data Binding</p>
+      <p><input type="number" ng-model="n1"> + <input type="number" ng-model="n2"> = {{n1 + n2}}</p>
+    <p>{{num[0] + num[3]}}</p>
+      <p>you like {{meat[0]}} and you also like {{meat[2]}}</p>
+      <p class="{{color}}">Class Orange</p>
   </body>
 </html>
