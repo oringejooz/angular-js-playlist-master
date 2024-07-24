@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="formValid">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="content/css/styles.css">
+
+    <script src="app/lib/angular.min.js"></script>
+    <script src="app/formValid.js"></script>
+</head>
+<body ng-controller="FormController">
+
+    <div class="content">
+        {{contact}}
+        <form name="contactForm" novalidate>
+            <label for="name">Name :</label>
+            <input class="input" type="text" id="name" placeholder="Enter Name" ng-required="true" ng-model="contact.name" name="name"> <br>
+            
+            <div ng-show="contactForm.name.$touched && contactForm.name.$invalid" >
+                <small style="color: red;display: block;text-align: center;">Enter a valid name</small>
+            </div>
+
+            
+            
+            <label for="email">E-mail :</label>
+            <input class="input" type="email" id="email" placeholder="Enter e-mail" ng-required="true" ng-model="contact.email" name="email"><br>
+            <div ng-show="contactForm.email.$touched && contactForm.email.$invalid" >
+                <small style="color: red;display: block;text-align: center;">Enter a valid e-mail</small>
+            </div>
+            <label for="txtAr">Enter Feedback :</label>
+            <textarea class="input" name="txtAr" id="txtAr" placeholder="Enter Feedback Here" ng-required="true" ng-model="contact.txtArea"></textarea><br>
+            
+            <input id="submit" type="submit" value="Send" ng-disabled="contactForm.$invalid">
+        </form>
+    </div>
+
+</body>
+</html>

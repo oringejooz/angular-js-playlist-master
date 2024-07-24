@@ -3,12 +3,25 @@ body{
   margin: 0;
 }
 
+.input.ng-invalid.ng-touched{
+  border: 1px solid red;
+}
+
+textarea.ng-invalid.ng-touched{
+  border: 1px solid red;
+}
+
 .orange{
   color: orange;
 }
 
 h1,h2,h3{
   margin: 0;
+}
+
+input:disabled{
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 .belt{
