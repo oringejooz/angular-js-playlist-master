@@ -1,8 +1,19 @@
-let myNinjaApp = angular.module('myNinjaApp',[]);
+let myNinjaApp = angular.module('myNinjaApp',['ngRoute']);
 
-myNinjaApp.config(function(){
+myNinjaApp.config(['$routeProvider',function($routeProvider){
 
-});//fires before our application runs
+    $routeProvider
+    .when('/home',{
+        templateurl : 'views/home.html',
+    })
+    .when('/directory',{
+        templateurl : 'views/directory.html',
+        controller : 'ninjaController',
+    }).otherwise({
+        redirectTo : '/home',
+    });
+
+}]);//fires before our application runs
 
 myNinjaApp.run(function(){
 
