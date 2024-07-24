@@ -4,10 +4,10 @@ myNinjaApp.config(['$routeProvider',function($routeProvider){
 
     $routeProvider
     .when('/home',{
-        templateurl : 'views/home.html',
+        templateUrl : 'views/home.html',
     })
     .when('/directory',{
-        templateurl : 'views/directory.html',
+        templateUrl : 'views/directory.html',
         controller : 'ninjaController',
     }).otherwise({
         redirectTo : '/home',
