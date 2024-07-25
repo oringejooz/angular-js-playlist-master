@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="content\css\styles.css">
+    <script src="app\lib\angular.min.js"></script>
+    <script src="practice1.js"></script>
+</head>
+<body ng-controller = "myController">
+    <!-- <ng-include src="'header.html'"></ng-include> -->
+    <header ng-include="'header.html'"></header>
+
+    <div class="content">
+    <button ng-click = "order = 'name'">Order by Name</button>  
+    <button ng-click = "order = 'rate'">Order by Rate</button>  
+    
+    <input type="text" ng-model="search">
+    <ul>
+        <li ng-repeat="ninja in Ninjas |orderBy : order|filter : search">
+            {{ninja.name}} - {{ninja.gender}} - {{ninja.rate | currency : '₹'}}
+
+            <div class="remove" ng-click="removeNinja(ninja)">x</div>
+            <span class="belt" style="background: {{ninja.belt}}">{{ninja.belt}} belt</span>
+        </li>
+        
+    </ul>
+
+    <form ng-submit="addNinja()">
+
+        <input type="text" name="name" id="name" placeholder="name" ng-model="newNinja.name">
+        <input type="text" name="GENDER" id="gender" placeholder="gender" ng-model="newNinja.gender">
+        <input type="text" name="belt" id="belt" placeholder="belt" ng-model="newNinja.belt">
+        <input type="text" name="rate" id="rate" placeholder="rate" ng-model="newNinja.rate">
+        <input type="submit" value="Add Ninja">
+    </form>
+
+    </div>
+
+</body>
+</html>
